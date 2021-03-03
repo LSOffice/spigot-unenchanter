@@ -21,6 +21,13 @@ public class Commands implements CommandExecutor {
 		}
 		Player player = (Player) sender;
 		
+		if (Main.plugin.getConfig().get("needpermission").equals(true)) {
+			if (!player.hasPermission("unenchanter.unenchanter")) {
+				player.sendMessage(ChatColor.RED + "You do not have the required permissions to run this command!");
+				return true;
+			}
+		}
+		
 		if (toggled.contains(player)) {
 			player.sendMessage(ChatColor.RED + "You have untoggled the unenchanter");
 			toggled.remove(player);

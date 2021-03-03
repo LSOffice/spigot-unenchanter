@@ -114,10 +114,16 @@ public class Inventory implements Listener {
 						else {
 							int enchantCost = 0;
 
+							if (event.getView().getItem(22).getEnchantments().isEmpty()) {
+								event.getWhoClicked().closeInventory();
+								event.getWhoClicked().sendMessage(ChatColor.RED + "This item does not have any enchantments!");
+								return;
+							}
+							
 							for (Enchantment e: event.getView().getItem(22).getEnchantments().keySet()) {
 								enchantCost += (int) ((event.getView().getItem(22).getEnchantments().get(e))/2);
 							}
-
+							
 							if (event.getWhoClicked().getExpToLevel() < enchantCost) {
 								event.getWhoClicked().closeInventory();
 								event.getWhoClicked().sendMessage(ChatColor.RED + "You don't have enough experience levels to do this! (" + Integer.toString(enchantCost) + " levels)");

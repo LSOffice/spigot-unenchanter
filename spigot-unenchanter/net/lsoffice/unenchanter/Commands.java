@@ -33,7 +33,7 @@ public class Commands implements CommandExecutor {
 			toggled.remove(player);
 		}
 		else {
-			player.sendMessage(ChatColor.GREEN + "You have toggled the unenchanter. All stonecutters will now open the unenchanter GUI");
+			player.sendMessage(ChatColor.GREEN + "You have toggled the unenchanter. All grindstones will now ask you if you want to unenchant your items0521");
 			toggled.add(player);
 		}
 		
